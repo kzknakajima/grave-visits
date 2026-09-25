@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>お墓参り記録</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <h1>🪦 お墓参り記録</h1>
+</header>
+
+<main>
+  <div id="hint" class="hidden"></div>
+
+  <section class="card">
+    <h2 id="form-title" style="margin-top:0;">記録を追加</h2>
+    <form id="visit-form">
+      <input type="hidden" id="visit-id" value="" />
+
+      <label for="date">訪問日</label>
+      <input type="date" id="date" required />
+
+      <label for="visitors">訪問者(カンマ区切り。例: 一郎家, 真也家, 圭吾)</label>
+      <input type="text" id="visitors" placeholder="一郎家, 真也家, 圭吾" />
+
+      <div class="checkbox-row">
+        <label><input type="checkbox" id="flowersOffered" /> お花を供えた</label>
+        <label><input type="checkbox" id="cleaned" /> お墓の掃除をした</label>
+      </div>
+
+      <label for="memo">メモ</label>
+      <textarea id="memo" placeholder="お供え物の内容や気づいたことなど"></textarea>
+
+      <button type="submit" class="primary" id="submit-btn">記録を保存</button>
+      <button type="button" class="secondary hidden" id="cancel-edit-btn">編集をキャンセル</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2 style="margin-top:0;">記録一覧</h2>
+    <div id="loading">読み込み中...</div>
+    <div id="empty" class="hidden">まだ記録がありません。</div>
+    <ul id="visit-list"></ul>
+  </section>
+</main>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
